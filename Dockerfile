@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y libcurl4-openssl-dev \
                                          libboost-regex1.58.0 \
                                          libboost-system1.58.0 \
                                          libboost-log1.58.0 \
+                                         libboost-iostreams1.58.0 \
                                          wget \
                                          default-jdk
 
