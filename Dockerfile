@@ -18,6 +18,6 @@ FROM nvidia/cuda:11.7.1-cudnn8-devel-ubuntu20.04
 
 RUN cd /tmp &&\
     wget -q https://mirror.oxfordnanoportal.com/software/analysis/ont_guppy_6.3.8-1~focal_amd64.deb &&\
-    dpkg -I /tmp/ont_guppy_5.0.7-1~xenial_amd64.deb
+    dpkg -I /tmp/ont_guppy_6.3.8-1~focal_amd64.deb
 
 
