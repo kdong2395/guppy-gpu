@@ -1,7 +1,8 @@
 FROM nvidia/cuda:11.7.0-cudnn8-devel-ubuntu20.04
 
-# RUN apt-get update && apt-get install -y libcurl4-openssl-dev \
-#                                          libssl-dev \
+RUN apt-get update && apt-get install -y wget
+                                        #  libcurl4-openssl-dev \
+                                        #  libssl-dev \
 #                                          libhdf5-cpp-11 \
 #                                          libzmq5 \
 #                                          libboost-atomic1.58.0 \
@@ -13,7 +14,7 @@ FROM nvidia/cuda:11.7.0-cudnn8-devel-ubuntu20.04
 #                                          libboost-system1.58.0 \
 #                                          libboost-log1.58.0 \
 #                                          libboost-iostreams1.58.0 \
-#                                          wget \
+#                                           \
 #                                          default-jdk
 
 RUN cd /tmp &&\
