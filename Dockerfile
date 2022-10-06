@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y wget \
 
 RUN cd /tmp &&\
     wget -q https://mirror.oxfordnanoportal.com/software/analysis/ont_guppy_6.3.8-1~focal_amd64.deb &&\
-    dpkg -i ont_guppy_6.3.8-1~focal_amd64.deb
+    dpkg -i ont_guppy_6.3.8-1~focal_amd64.deb &&\
+    rm -f *.deb
 
 RUN rm -f *.deb &&\
     apt-get autoremove --purge --yes &&\
