@@ -1,24 +1,14 @@
-FROM nvidia/cuda:11.7.0-cudnn8-devel-ubuntu20.04
+FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
 
-RUN apt-get update && apt-get install -y wget
-                                        #  libcurl4-openssl-dev \
-                                        #  libssl-dev \
-#                                          libhdf5-cpp-11 \
-#                                          libzmq5 \
-#                                          libboost-atomic1.58.0 \
-#                                          libboost-chrono1.58.0 \
-#                                          libboost-date-time1.58.0 \
-#                                          libboost-filesystem1.58.0 \
-#                                          libboost-program-options1.58.0 \
-#                                          libboost-regex1.58.0 \
-#                                          libboost-system1.58.0 \
-#                                          libboost-log1.58.0 \
-#                                          libboost-iostreams1.58.0 \
-#                                           \
-#                                          default-jdk
+RUN apt-get update && apt-get install -y wget \
+                                         libnvidia-compute-510-server \
+                                         libzmq5
 
 RUN cd /tmp &&\
     wget -q https://mirror.oxfordnanoportal.com/software/analysis/ont_guppy_6.3.8-1~focal_amd64.deb &&\
-    dpkg -I /tmp/ont_guppy_6.3.8-1~focal_amd64.deb
+    dpkg -i ont_guppy_6.3.8-1~focal_amd64.deb
 
-
+RUN rm -f *.deb &&\
+    apt-get autoremove --purge --yes &&\
+    apt-get clean &&\
+    rm -rf /var/lib/apt/lists/*
